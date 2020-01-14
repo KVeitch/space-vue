@@ -49,11 +49,13 @@ export default {
   padding: 0;
   box-sizing:border-box;
 }
+
 #app {
   background-color: #AFAFAF;
   height:100vh;
   padding: 10px
 }
+
 header{
   width:100%;
   height: 80px;
@@ -64,8 +66,8 @@ header{
   align-items: center;
   padding:15px;
   margin-bottom:10px;
-
 }
+
 button{
   width:200px;
   height:50px;
@@ -80,6 +82,5 @@ button{
               -6px -6px 6px 0px rgba(255,255,255,0.75);
   border: none;
   margin-left:50px;
-  
 }
 </style>
