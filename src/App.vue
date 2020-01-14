@@ -56,4 +56,31 @@ export default {
   height:100vh;
   padding: 1%
 }
+header{
+  width:100%;
+  height: 80px;
+  background-color: #ECECEC;
+  border-radius: 25px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:15px;
+
+}
+button{
+  width:200px;
+  height:50px;
+  border-radius: 25px;
+  background-color:#ECECEC;
+  font-size: 20px;
+  -webkit-box-shadow: 6px 6px 6px 0px rgba(0,0,0,0.75),
+              -6px -6px 6px 0px rgba(255,255,255,0.75);
+  -moz-box-shadow: 6px 6px 6px 0px rgba(0,0,0,0.75),
+              -6px -6px 6px 0px rgba(255,255,255,0.75);
+  box-shadow: 6px 6px 6px 0px rgba(0,0,0,0.75),
+              -6px -6px 6px 0px rgba(255,255,255,0.75);
+  border: none;
+  margin-left:50px;
+  
+}
 </style>

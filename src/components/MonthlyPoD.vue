@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <header>
+      <h1>Space Vue</h1>
       <button @click="selectToday">Today's PoD</button>
     </header>
     <p>Month Month</p>
