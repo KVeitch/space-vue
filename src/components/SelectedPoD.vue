@@ -1,22 +1,25 @@
 <template>
-  <div class="pod">
+  <div class="hello">
     <header>
+      <button @click="selectToday">Today's PoD</button>
       <button @click="selectMonth">This Month's PoD</button>
     </header>
-
-    <p>pod</p>
+    <p>SelectedPoD</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PoD',
+  name: 'SelectedPoD',
   props: {
-    msg: String,
+    msg: String
   },
   methods:{
     selectMonth(){
       this.$emit('selectMonth')
+    },
+    selectToday(){
+      this.$emit('selectToday')
     }
   }
 }
@@ -24,7 +27,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
- /* button: {
-   height:
- } */
+
 </style>
