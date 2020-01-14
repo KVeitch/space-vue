@@ -1,26 +1,26 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <PoD msg="App" v-if="this.show==='today' @selectMonth="selectMonth" />
+    <PoD msg="App" v-if="this.show==='today'" @selectMonth="selectMonth" />
     <MonthlyPoD v-if="this.show==='month'" @selectToday="selectToday" />
-    <CurrentPoD v-if="this.show==='current' />
+    <SelectedPoD v-if="this.show==='selected'" @selectToday="selectToday" @selectMonth="selectMonth" />
   </div>
 </template>
 
 <script>
-import PoD from './components/PoD.vue'
-import CurrentPoD from './components/CurrentPoD.vue'
-import MonthlyPoD from './components/MonthlyPoD'
+import PoD from './components/PoD';
+import MonthlyPoD from './components/MonthlyPoD';
+import SelectedPoD from './components/SelectedPoD';
 export default {
   name: 'app',
   components: {
     PoD,
+    SelectedPoD,
     MonthlyPoD,
-    CurrentPod
   },
   data() {
     return {
-      currentPoD: {},
+      selected: {},
       todatPoD:{},
       monthlyPoD:[],
       show:'today'
@@ -32,6 +32,9 @@ export default {
     },
     selectToday(){
       this.show='today'
+    },
+    selectCurrent(){
+      this.show='selected'
     }
   },
 

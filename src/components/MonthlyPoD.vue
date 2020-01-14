@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
-    <header><button @click="selectMonth">Today's PoD</button></header>
+    <header>
+      <button @click="selectToday">Today's PoD</button>
+    </header>
     <p>Month Month</p>
   </div>
 </template>
@@ -12,7 +14,7 @@ export default {
     msg: String
   },
     methods:{
-    selectMonth(){
+    selectToday(){
       this.$emit('selectToday')
     }
   }
