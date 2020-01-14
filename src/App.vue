@@ -1,21 +1,19 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <PoD msg="App" v-if="this.show==='today'" @selectMonth="selectMonth" />
+    <SinglePoD msg="App" v-if="this.show==='today'" @selectMonth="selectMonth" />
     <MonthlyPoD v-if="this.show==='month'" @selectToday="selectToday" />
-    <SelectedPoD v-if="this.show==='selected'" @selectToday="selectToday" @selectMonth="selectMonth" />
+    <SinglePoD v-if="this.show==='selected'" @selectMonth="selectMonth" />
   </div>
 </template>
 
 <script>
-import PoD from './components/PoD';
+import SinglePoD from './components/SinglePoD';
 import MonthlyPoD from './components/MonthlyPoD';
-import SelectedPoD from './components/SelectedPoD';
 export default {
   name: 'app',
   components: {
-    PoD,
-    SelectedPoD,
+    SinglePoD,
     MonthlyPoD,
   },
   data() {
@@ -23,7 +21,7 @@ export default {
       selected: {},
       todatPoD:{},
       monthlyPoD:[],
-      show:'today'
+      show:'selected'
     }
   },
   methods:{
@@ -54,7 +52,7 @@ export default {
 #app {
   background-color: #AFAFAF;
   height:100vh;
-  padding: 1%
+  padding: 10px
 }
 header{
   width:100%;
@@ -65,6 +63,7 @@ header{
   justify-content: space-between;
   align-items: center;
   padding:15px;
+  margin-bottom:10px;
 
 }
 button{
