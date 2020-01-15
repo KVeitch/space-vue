@@ -1,15 +1,20 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <SinglePoD msg="App" v-if="this.show==='today'" @selectMonth="selectMonth" />
-    <MonthlyPoD v-if="this.show==='month'" @selectToday="selectToday" />
-    <SinglePoD v-if="this.show==='selected'" @selectMonth="selectMonth" />
+    <div v-if="!this.loaded" class="loading">
+      <img class="loading-image" alt="Planets orbiting the Sun" src="./assets/loading2.gif">
+    </div>
+    <SinglePoD msg="App" v-if="this.show==='today' && this.loaded" @selectMonth="selectMonth" v-bind:pod="this.todayPoD" ></SinglePoD>
+    <MonthlyPoD msg="yep" v-if="this.show==='month'" @selectToday="selectToday" @selectCurrent="selectCurrent" v-bind:monthly="this.monthlydata"></MonthlyPoD>
+    <SinglePoD v-if="this.show==='selected'" @selectMonth="selectMonth" v-bind:pod="this.selected"></SinglePoD>
   </div>
 </template>
 
 <script>
+
 import SinglePoD from './components/SinglePoD';
 import MonthlyPoD from './components/MonthlyPoD';
+import { getThisMonthPics } from '../utils/APIcalls';
+
 export default {
   name: 'app',
   components: {
@@ -19,9 +24,10 @@ export default {
   data() {
     return {
       selected: {},
-      todatPoD:{},
-      monthlyPoD:[],
-      show:'selected'
+      todayPoD:{},
+      monthlydata:[],
+      show:'today',
+      loaded:false
     }
   },
   methods:{
@@ -31,12 +37,22 @@ export default {
     selectToday(){
       this.show='today'
     },
-    selectCurrent(){
+    selectCurrent(index){
+      console.log('Here==========>',index)
+      this.selected = this.monthlydata[index]
+      console.log(this.monthlydata[index])
       this.show='selected'
-    }
+    },
   },
-
+  mounted(){
+    getThisMonthPics()
+    .then(res => {this.monthlydata = res; return res})
+    .then(res => this.todayPoD = res.slice(-1)[0])
+    .then(()=>this.loaded=true)
+    .catch(err=>console.log(err))
+  },
 }
+
 </script>
 
 <style>
@@ -49,11 +65,25 @@ export default {
   padding: 0;
   box-sizing:border-box;
 }
-
+body{
+  background-color: #AFAFAF;
+}
 #app {
   background-color: #AFAFAF;
   height:100vh;
   padding: 10px
+}
+.loading{
+  height:100%;
+  width:100%;
+  background-color: black;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.loadingImage {
+  height:600px;
+  width:600px;
 }
 
 header{

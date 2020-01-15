@@ -4,13 +4,13 @@
       <h1>Space Vue</h1>
       <button @click="selectMonth">This Month's PoD</button>
     </header>
-    <h2 class="title">Title for the PoD</h2>
+    <h2 class="title">{{pod.title}}, NASA's picture of the day from {{this.styleDate(pod.date)}}</h2>
     <main>
     <aside>
-      Description will go here
+      {{pod.explanation}}
     </aside>
     <div class="main__div">
-      <img src='' alt='NASA picture of the day'>
+      <img v-bind:src="pod.url" v-bind:alt="pod.title">
     </div>
     </main>
   </div>
@@ -21,10 +21,18 @@ export default {
   name: 'SinglePoD',
   props: {
     msg: String,
+    pod: Object
   },
   methods:{
     selectMonth(){
       this.$emit('selectMonth')
+    },
+    styleDate(date){
+      let dateArray = date.split('-');
+      let year = dateArray.shift()
+      dateArray.push(year)
+      dateArray = dateArray.join('-')
+      return dateArray
     }
   }
 }
@@ -48,7 +56,8 @@ export default {
     width:30%;
     background-color: #ECECEC;
     border-radius:25px;
-    padding:15px;
+    padding:25px;
+    overflow-y:scroll;
   }
   .main__div {
     height: calc(100vh - 185px) ;
@@ -61,8 +70,13 @@ export default {
     align-items: center
   }
   img {
-    height:90%;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 25px;
+  }
+  aside{
+
+    text-align: justify;
+    font-size:18px;
   }
 </style>
