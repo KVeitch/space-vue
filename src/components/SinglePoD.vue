@@ -10,7 +10,7 @@
       {{pod.explanation}}
     </aside>
     <div class="main__div">
-      <img v-bind:src="pod.url" alt="NASA picture of the day">
+      <img v-bind:src="pod.url" v-bind:alt="pod.title">
     </div>
     </main>
   </div>
