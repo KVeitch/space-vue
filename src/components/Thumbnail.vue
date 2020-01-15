@@ -1,7 +1,11 @@
 <template>
   <div class="div--thumbnail">
     <h3 class="title">{{item.title}}</h3>
-    <img v-bind:src="item.url" v-bind:alt="item.title" @click="selectCurrent(index)" />
+    <img 
+      v-bind:src="item.url"
+      v-bind:alt="item.title"
+      @click="selectCurrent(index)"  
+    >
     <p>{{this.styleDate(item.date)}}</p>
   </div>
 </template>

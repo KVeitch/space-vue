@@ -29,7 +29,7 @@ export default {
   name: "app",
   components: {
     SinglePoD,
-    MonthlyPoD
+    MonthlyPoD,
   },
   data() {
     return {
@@ -64,6 +64,7 @@ export default {
       .catch(err => (this.error = err));
   }
 };
+
 </script>
 
 <style>
@@ -96,7 +97,6 @@ body {
   height: 600px;
   width: 600px;
 }
-
 header {
   width: 100%;
   height: 80px;
@@ -108,7 +108,6 @@ header {
   padding: 15px;
   margin-bottom: 10px;
 }
-
 button {
   width: 200px;
   height: 50px;
