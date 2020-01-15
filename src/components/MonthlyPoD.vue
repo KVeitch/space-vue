@@ -2,21 +2,37 @@
   <div class="hello">
     <header>
       <h1>Space Vue</h1>
-      <button @click="selectToday">Today's PoD</button>
+      <button @click="selectDay">Today's PoD</button>
     </header>
-    <p>Month Month</p>
+    <main>
+      <Thumbnail
+        v-for="(item, index) in this.monthly"
+        v-bind:item="item"
+        v-bind:index="index"
+        @selectCurrent="selectCurrent"
+        >       
+      </Thumbnail>
+    </main>
   </div>
 </template>
 
 <script>
+import Thumbnail from './Thumbnail'
 export default {
   name: 'MonthlyPoD',
   props: {
-    msg: String
+    msg: String,
+    monthly: Array
+  },
+    components: {
+      Thumbnail,
   },
     methods:{
-    selectToday(){
+    selectDay(){
       this.$emit('selectToday')
+    },
+    selectCurrent(index){
+      this.$emit('selectCurrent', index)
     }
   }
 }
@@ -24,18 +40,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+main {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap:10px;
+  overflow-y:scroll;
+  height:100%;
 }
 </style>
