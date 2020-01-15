@@ -42,7 +42,7 @@ export default {
   width: 250px;
   height: 320px;
   padding: 12px;
-  border-radius: 15px;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -53,7 +53,7 @@ h3 {
 img {
   max-height: 200px;
   max-width: 200px;
-  border-radius: 8px;
+  border-radius: 3px;
   -webkit-box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.75),
     -6px -6px 6px 0px rgba(255, 255, 255, 0.75);
   -moz-box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.75),

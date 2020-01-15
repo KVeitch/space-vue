@@ -41,7 +41,7 @@ export default {
 
 h2 {
   background-color: #ececec;
-  border-radius: 25px;
+  border-radius: 3px;
   padding: 15px;
   margin-bottom: 10px;
   text-align: start;
@@ -53,7 +53,7 @@ aside {
   height: calc(100vh - 185px);
   width: 30%;
   background-color: #ececec;
-  border-radius: 25px;
+  border-radius: 3px;
   padding: 25px;
   overflow-y: scroll;
 }
@@ -62,7 +62,7 @@ aside {
   width: 70%;
   background-color: #ececec;
   margin-left: 15px;
-  border-radius: 25px;
+  border-radius: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +70,7 @@ aside {
 img {
   max-width: 95%;
   max-height: 95%;
-  border-radius: 25px;
+  border-radius: 3px;
 }
 aside {
   text-align: justify;

@@ -101,7 +101,7 @@ header {
   width: 100%;
   height: 80px;
   background-color: #ececec;
-  border-radius: 25px;
+  border-radius: 3px;
   display: flex;
   justify-content: space-between;
   align-items: center;
