@@ -57,10 +57,21 @@ img {
   -webkit-box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.75),
     -6px -6px 6px 0px rgba(255, 255, 255, 0.75);
   -moz-box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.75),
-    -6px -6px 6px 0px rgba(255, 255, 255, 0.75);
+    -6px -6px -6px 0px rgba(255, 255, 255, 0.75);
   box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.75),
     -6px -6px 6px 0px rgba(255, 255, 255, 0.75);
+  transition: 0.25s;
   cursor: pointer;
+}
+img:hover{
+  transform:scale(1.05);
+  -webkit-box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.75),
+    -8px -8px 8px 0px rgba(255, 255, 255, 0.75);
+  -moz-box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.75),
+    -8px -8px -8px 0px rgba(255, 255, 255, 0.75);
+  box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.75),
+    -8px -8px 8px 0px rgba(255, 255, 255, 0.75);
+  
 }
 p {
 }

@@ -123,5 +123,9 @@ button {
   border: none;
   margin-left: 50px;
   cursor: pointer;
+  transition: .5s;
+}
+button:hover{
+  background-color: #96ff73;
 }
 </style>
