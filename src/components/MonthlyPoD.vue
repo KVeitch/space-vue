@@ -9,42 +9,43 @@
         v-for="(item, index) in this.monthly"
         v-bind:item="item"
         v-bind:index="index"
+        v-bind:key="index"
         @selectCurrent="selectCurrent"
-        >       
-      </Thumbnail>
+      ></Thumbnail>
     </main>
   </div>
 </template>
 
 <script>
-import Thumbnail from './Thumbnail'
+import Thumbnail from "./Thumbnail";
 export default {
-  name: 'MonthlyPoD',
+  name: "MonthlyPoD",
   props: {
     msg: String,
     monthly: Array
   },
-    components: {
-      Thumbnail,
+  components: {
+    Thumbnail
   },
-    methods:{
-    selectDay(){
-      this.$emit('selectToday')
+  methods: {
+    selectDay() {
+      this.$emit("selectToday");
     },
-    selectCurrent(index){
-      this.$emit('selectCurrent', index)
+    selectCurrent(index) {
+      this.$emit("selectCurrent", index);
     }
   }
-}
+};
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 main {
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap:10px;
-  overflow-y:scroll;
-  height:100%;
+  grid-gap: 10px;
+  overflow-y: scroll;
+  height: 100%;
 }
 </style>
