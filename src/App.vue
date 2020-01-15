@@ -1,15 +1,17 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <SinglePoD msg="App" v-if="this.show==='today'" @selectMonth="selectMonth" />
-    <MonthlyPoD v-if="this.show==='month'" @selectToday="selectToday" />
-    <SinglePoD v-if="this.show==='selected'" @selectMonth="selectMonth" />
+    <SinglePoD msg="App" v-if="this.show==='today' && this.loaded" @selectMonth="selectMonth" v-bind:pod="this.todayPoD" ></SinglePoD>
+    <MonthlyPoD msg="yep" v-if="this.show==='month'" @selectToday="selectToday" v-bind:monthly="this.monthlydata"></MonthlyPoD>
+    <SinglePoD v-if="this.show==='selected'" @selectMonth="selectMonth" ></SinglePoD>
   </div>
 </template>
 
 <script>
 import SinglePoD from './components/SinglePoD';
 import MonthlyPoD from './components/MonthlyPoD';
+import {getThisMonthPics} from '../utils/APIcalls';
+
 export default {
   name: 'app',
   components: {
@@ -19,9 +21,10 @@ export default {
   data() {
     return {
       selected: {},
-      todatPoD:{},
-      monthlyPoD:[],
-      show:'selected'
+      todayPoD:{},
+      monthlydata:[],
+      show:'today',
+      loaded:false
     }
   },
   methods:{
@@ -33,10 +36,17 @@ export default {
     },
     selectCurrent(){
       this.show='selected'
-    }
+    },
   },
-
+  mounted(){
+    getThisMonthPics()
+    .then(res => {this.monthlydata = res; return res})
+    .then(res => this.todayPoD = res.slice(-1)[0])
+    .then(()=>this.loaded=true)
+    .catch(err=>console.log(err))
+  },
 }
+
 </script>
 
 <style>
