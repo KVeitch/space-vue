@@ -29,8 +29,11 @@ npm start
 ## Developer  
 Kirk Veitch - [github account](https://github.com/KVeitch)
 
-## Screenshots
-
+## Screenshots  
 ![Home screen](./DOCS/homescreen.png)
 ![Month view screen](./DOCS/monthlyview.png)
+
+## Initial Wireframes  
+![Month view screen](./DOCS/Web%201920%20%E2%80%93%201.jpg)
+![Month view screen](./DOCS/Web%201920%20%E2%80%93%202.jpg)
 
