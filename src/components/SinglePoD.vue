@@ -4,7 +4,7 @@
       <h1>Space Vue</h1>
       <button @click="selectMonth">This Month's PoD</button>
     </header>
-    <h2 class="title">{{pod.title}} NASA picture of the day from {{pod.date}}</h2>
+    <h2 class="title">{{pod.title}} NASA picture of the day from {{this.styleDate(pod.date)}}</h2>
     <main>
     <aside>
       {{pod.explanation}}
@@ -27,6 +27,13 @@ export default {
     selectMonth(){
       this.$emit('selectMonth')
     },
+    styleDate(date){
+      let dateArray = date.split('-');
+      let year = dateArray.shift()
+      dateArray.push(year)
+      dateArray = dateArray.join('-')
+      return dateArray
+    }
   }
 }
 </script>
@@ -50,6 +57,7 @@ export default {
     background-color: #ECECEC;
     border-radius:25px;
     padding:25px;
+    overflow-y:scroll;
   }
   .main__div {
     height: calc(100vh - 185px) ;
