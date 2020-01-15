@@ -6,7 +6,7 @@
       v-bind:alt="item.title"
       @click="selectCurrent(index)"  
     >
-    <p>{{item.date}}</p>
+    <p>{{this.styleDate(item.date)}}</p>
   </div>
 </template>
 
@@ -23,6 +23,13 @@ export default {
     },
     selectCurrent(){
       this.$emit('selectCurrent', this.index)
+    },
+    styleDate(date){
+      let dateArray = date.split('-');
+      let year = dateArray.shift()
+      dateArray.push(year)
+      dateArray = dateArray.join('-')
+      return dateArray
     }
   }
 }
