@@ -123,5 +123,6 @@ button {
     -6px -6px 6px 0px rgba(255, 255, 255, 0.75);
   border: none;
   margin-left: 50px;
+  cursor: pointer;
 }
 </style>
