@@ -1,6 +1,6 @@
 <template>
   <div class="div--thumbnail">
-    <h3 class="title">Title</h3>
+    <h3 class="title">{{item.title}}</h3>
     <img src='' alt='title'>
     <p>Date</p>
   </div>
@@ -8,9 +8,10 @@
 
 <script>
 export default {
-  name: 'ThumbnailPoD',
+  name: 'Thumbnail',
   props: {
     msg: String,
+    item:Object
   },
   methods:{
     selectMonth(){
