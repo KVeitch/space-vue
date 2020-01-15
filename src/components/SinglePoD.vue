@@ -4,7 +4,7 @@
       <h1>Space Vue</h1>
       <button @click="selectMonth">This Month's PoD</button>
     </header>
-    <h2 class="title">{{pod.title}} NASA picture of the day from {{this.styleDate(pod.date)}}</h2>
+    <h2 class="title">{{pod.title}}, NASA's picture of the day from {{this.styleDate(pod.date)}}</h2>
     <main>
     <aside>
       {{pod.explanation}}
