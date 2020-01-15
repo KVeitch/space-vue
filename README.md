@@ -1,24 +1,36 @@
-# space-vue
+[//]: # (use this line to add comments)
+# Space-Vue
 
-## Project setup
-```
+#### Live Application - [Deployed to Heroku](https://space-vue.herokuapp.com/)
+
+### Summary
+Space-Vue is a single-page application built in Vue.js that queries the NASA Astronomy Picture of the Day API and displays today's and this month's Pictures of the Day with descritpions.
+
+### Technologies Utilized
+- Vue
+- Node JS
+- Express
+- Heroku
+
+## To run the program locally  
+### Clone and Install UI
+
+Clone down the repository.
+
+Install the application's dependencies from within the cloned directory:
+```bash
 npm install
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+Then launch the application within the browser:
+```bash
+npm start
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Developer  
+Kirk Veitch - [github account](https://github.com/KVeitch)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Screenshots
+
+![Home screen](./DOCS/homescreen.png)
+![Month view screen](./DOCS/monthlyview.png)
+
